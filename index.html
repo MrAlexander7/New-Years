@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy New Year</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<figure>
+    <div class="star"></div>
+    <div class="trunk"></div>
+    <div class="tree">
+        <div style="--i: 1"></div>
+        <div style="--i: 2"></div>
+        <div style="--i: 3"></div>
+        <div style="--i: 4"></div>
+    </div>
+    <div class="lights"></div>
+</figure>
+
+<!-- Gifts Section -->
+<div class="gifts">
+    <div class="gift"></div>
+    <div class="gift"></div>
+    <div class="gift"></div>
+</div>
+
+<!-- New Year Message -->
+<div class="new-year-message">Happy New Year (З новим Роком :3)</div>
+
+<script>
+    // Function to handle gift click event
+    const gifts = document.querySelectorAll('.gift');
+
+    gifts.forEach(gift => {
+        gift.addEventListener('click', () => {
+            // Create a custom wish message
+            const wishMessage = document.createElement('div');
+            wishMessage.textContent = "Вітаю з Новим Роком! Лисенок, я впевнений, цей новий рік буде тільки краще ніж попередній. Не зважаючи на будь-які прегради, я завжди буду поруч та підтримаю тебе) Так, я інколи буває веду себе як дитина, але таке я можу дозволити лише з тобою) З Новим Роком :3";
+            wishMessage.style.position = 'absolute';
+            wishMessage.style.top = '70px'; // Adjusted position below the gift
+            wishMessage.style.left = '90%';
+            wishMessage.style.transform = 'translateX(-50%)';
+            wishMessage.style.backgroundColor = '#fff';
+            wishMessage.style.color = '#800080'; // Dark purple text color
+            wishMessage.style.padding = '10px';
+            wishMessage.style.borderRadius = '5px';
+            wishMessage.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.2)';
+            wishMessage.style.zIndex = '10';
+            wishMessage.style.maxWidth = '1500px'; // Limit width for better readability
+            wishMessage.style.textAlign = 'center'; // Center align the text
+
+            // Append the message to the gift
+            gift.appendChild(wishMessage);
+
+            // Remove the message after 5 seconds
+            setTimeout(() => {
+                gift.removeChild(wishMessage);
+            }, 10000);
+        });
+    });
+</script>
+
+</body>
+</html>
