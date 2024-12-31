@@ -37,6 +37,91 @@ figure {
     justify-items: center;
 }
 
+.snowflakes {
+    position: fixed; /* Важливо, щоб сніжинки рухались при скролінгу */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Сніжинки не заважатимуть взаємодії з елементами сторінки */
+    z-index: 9999; /* Вивести сніжинки на передній план */
+}
+
+.snowflake {
+    position: absolute;
+    top: -10%; /* Стартова позиція трохи вище екрану */
+    font-size: 2rem; /* Розмір сніжинок */
+    color: white; /* Колір сніжинок */
+    opacity: 0.8; /* Прозорість для кращого вигляду */
+    animation: fall linear infinite; /* Анімація падіння */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh); /* Сніжинка падає до нижньої частини екрану */
+        opacity: 0; /* Зникає після досягнення кінця */
+    }
+}
+
+/* Кожна сніжинка має свої параметри для випадкового падіння */
+.snowflake:nth-child(1) {
+    left: 10%;
+    animation-duration: 10s;
+    animation-delay: 0s;
+}
+
+.snowflake:nth-child(2) {
+    left: 20%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+.snowflake:nth-child(3) {
+    left: 30%;
+    animation-duration: 8s;
+    animation-delay: 4s;
+}
+
+.snowflake:nth-child(4) {
+    left: 40%;
+    animation-duration: 10s;
+    animation-delay: 6s;
+}
+
+.snowflake:nth-child(5) {
+    left: 50%;
+    animation-duration: 9s;
+    animation-delay: 1s;
+}
+
+.snowflake:nth-child(6) {
+    left: 60%;
+    animation-duration: 11s;
+    animation-delay: 3s;
+}
+
+.snowflake:nth-child(7) {
+    left: 70%;
+    animation-duration: 13s;
+    animation-delay: 5s;
+}
+
+.snowflake:nth-child(8) {
+    left: 80%;
+    animation-duration: 14s;
+    animation-delay: 7s;
+}
+
+.snowflake:nth-child(9) {
+    left: 90%;
+    animation-duration: 15s;
+    animation-delay: 8s;
+}
+
 /* New styles for gifts */
 .gifts {
     display: flex;
@@ -86,7 +171,7 @@ figure {
     text-align: center;
     font-size: 1.5rem; /* Adjust font size as needed */
     color: #fde047; /* Match star color */
-    margin-top: 1rem; /* Space above message */
+    margin-top: 1.2rem; /* Space above message */
     opacity: 0; /* Start invisible */
     transform: scale(0.5); /* Start small */
     animation: fadeInScale 1s forwards; /* Apply animation */
@@ -288,7 +373,6 @@ figure {
         opacity: 0;
     }
 }
-
 
 @media (max-width: 600px) {
     .gifts {
